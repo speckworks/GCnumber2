@@ -4,27 +4,28 @@
 
 function commonYears(arr){
   //first I flatten the array to make it easier to iterate through given values
-  let allYears = arr.flat();
-  console.log("allyears", allYears)
-  let answer = [];
-  let list = [];
-  //create a new array of all the values between list[i] and it's neigbor at list[i+1] this will allow us to look at all values in given ranges and find the repeated values
-for(var i = 0; i <= allYears.length; i++) {  
-for (var j = allYears[i]; j <= allYears[i+1]; j++) {
-    list.push(j);
-}
-}
-//sort said array of years
-list.sort();
-console.log("list", list);
-//push and return only years that are in all given ranges (for test case A that is triplicate, representing the fact that they are included in all 3 ranges of years)
-for(let l = 0; l < list.length; l++){
-  if(list[l] === list[l+1] && list[l] === list[l+2]){
-    answer.push(list[l])
+  let allYears = arr.flat(), list = [], commonVals = [], counts={};
+  //next, I create a list that contains all the values in the ranges given
+  for(let i = 0; i < allYears.length; i++){
+    for(let j = allYears[i]; j <= allYears[i+1]; j++){
+      list.push(j);
+    }
   }
+  //i create a copy of the sorted array so as not to mutate the original list, and sort it, so all our values common to different years spans are consecutive and 
+  sortedList = list.slice().sort();
+  // console.log("list", sortedList);
+  for (var k=0;k<sortedList.length;k++) {
+    var item = sortedList[k];
+    counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
+    if (counts[item] >= 3) {
+      commonVals.push(item);
+    }
 }
-console.log("years that can be found in each of the the ranges of input are:", answer);
+  console.log(commonVals);
 }
 
- let arr = [[1910, 1950], [1900, 1951], [1945, 2000]]//return [1945, 1946, 1947, 1948, 1949, 1950]
-commonYears(arr);
+ let arr1 = [[1910, 1950], [1900, 1951], [1945, 2000]]//return [1945, 1946, 1947, 1948, 1949, 1950]
+commonYears(arr1);
+//test case B
+let arr2 = [[1901,1903],[1902,1904],[1903,1905],[1899,1905]]
+commonYears(arr2);
