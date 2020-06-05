@@ -8,13 +8,13 @@ function commonYears(arr){
   console.log("allyears", allYears)
   let answer = [];
   let list = [];
-  //create a new array of all the values between list[i] and it's neigbor at list[i+1] this will allow us to look at all values in given ranges and find the repeated values
+  //create a new array called "list" of all the values between list[i] and it's neigbor at list[i+1]. This will allow us to look at all values in given ranges and find the repeated values.
 for(var i = 0; i <= allYears.length; i++) {  
 for (var j = allYears[i]; j <= allYears[i+1]; j++) {
     list.push(j);
 }
 }
-//sort said array of years
+//Sort the "List" array of all years given in our ranges
 list.sort();
 console.log("list", list);
 //push and return only years that are in all given ranges (for test case A that is triplicate, representing the fact that they are included in all 3 ranges of years)
@@ -26,5 +26,9 @@ for(let l = 0; l < list.length; l++){
 console.log("years that can be found in each of the the ranges of input are:", answer);
 }
 
- let arr = [[1910, 1950], [1900, 1951], [1945, 2000]]//return [1945, 1946, 1947, 1948, 1949, 1950]
+ let arr = [[1910, 1950], [1900, 1951], [1945, 2000]]
+ //test case A should return [1945, 1946, 1947, 1948, 1949, 1950]
 commonYears(arr);
+//test case B [[1900,1903],[1902,1907],[1905,1906]]
+let arrB = [[1900,1903],[1902,1907],[1903,1906]]
+commonYears(arrB);
