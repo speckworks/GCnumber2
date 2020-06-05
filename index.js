@@ -11,17 +11,19 @@ function commonYears(arr){
       list.push(j);
     }
   }
-  //i create a copy of the sorted array so as not to mutate the original list, and sort it, so all our values common to different years spans are consecutive and 
-  sortedList = list.slice().sort();
+  //i create a copy of the array of all ranges so as not to mutate the original list
+  let rangeList = list.slice();
   // console.log("list", sortedList);
-  for (var k=0;k<sortedList.length;k++) {
-    var item = sortedList[k];
+  for (var k=0;k<rangeList.length;k++) {
+    var item = rangeList[k];
+    //analyse each item of the rangeList, assign it to a key of the  "counts object" and assign a value that represents it's key.
     counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
+    //i still need to tweak this code to return Only the year(s) that is most common amongst the ranges being analyzed
     if (counts[item] >= 3) {
       commonVals.push(item);
     }
 }
-  console.log(commonVals);
+  console.log(commonVals, counts);
 }
 
  let arr1 = [[1910, 1950], [1900, 1951], [1945, 2000]]//return [1945, 1946, 1947, 1948, 1949, 1950]
