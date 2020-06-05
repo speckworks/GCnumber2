@@ -20,9 +20,11 @@ function commonYears(arr){
     counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
     //i still need to tweak this code to return Only the year(s) that is most common amongst the ranges being analyzed
     if (counts[item] >= 3) {
+    //this is where we will eventually push the years that are most common from our ranges. 
       commonVals.push(item);
     }
 }
+//return the year(s) most common to all ranges.  
   console.log(commonVals, counts);
 }
 
