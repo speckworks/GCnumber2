@@ -26,9 +26,9 @@ for(let l = 0; l < list.length; l++){
 console.log("years that can be found in each of the the ranges of input are:", answer);
 }
 
- let arr = [[1910, 1950], [1900, 1951], [1945, 2000]]
  //test case A should return [1945, 1946, 1947, 1948, 1949, 1950]
+ let arr = [[1910, 1950], [1900, 1951], [1945, 2000]]
 commonYears(arr);
-//test case B [[1900,1903],[1902,1907],[1905,1906]]
+//test case B [[1900,1903],[1902,1907],[1905,1906]] should return 1903
 let arrB = [[1900,1903],[1902,1907],[1903,1906]]
 commonYears(arrB);
