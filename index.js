@@ -38,4 +38,3 @@ commonYears(arr2);
 //test case C
 let arr3 = [[1900,1945],[1910,1934],[1909,1921],[1850,1876]]//return [1910,1921] test for outlier array [1850,1876]
 commonYears(arr3);
-
