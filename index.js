@@ -1,6 +1,7 @@
 //Problem: Return only years that are included in the following sets of ranges of years:
 //[[1910, 1950], [1900, 1951], [1945, 2000]]
 //test case A should return [1945, 1946, 1947, 1948, 1949, 1950]
+
 function commonYears(arr){
   //first I make a copy of the Arr (so as not to mutate original array) and flatten the array to make it easier to iterate through given values
   let allYears = arr.slice().flat(), list = [], counts={};
@@ -19,13 +20,15 @@ function commonYears(arr){
     //analyse each item of the rangeList, assign it to a key of the  "counts object" and assign a value that represents it's key.
     counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
   }
-    //here we use a helper function "getMax" to filter the counts object and return the keys representing the years with greatest common occurence between ranges
-   const getMax = object => {
-        return Object.keys(object).filter(x => {
-             return object[x] == Math.max.apply(null, 
-             Object.values(object));
-       })
-      }
+////////////////////////////////////////////////////////////////////////  
+//here we use a helper function "getMax" to filter the counts object and return the keys representing the years with greatest common occurence between ranges
+const getMax = object => {
+    return Object.keys(object).filter(x => {
+          return object[x] == Math.max.apply(null, 
+          Object.values(object));
+    })
+/////////////////////////////////////////////////////////////////////////    
+  }
 //return the year(s) most common to all ranges.  
     console.log(getMax(counts)
       );
