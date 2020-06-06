@@ -1,7 +1,6 @@
 //Problem: Return only years that are included in the following sets of ranges of years:
 //[[1910, 1950], [1900, 1951], [1945, 2000]]
 //test case A should return [1945, 1946, 1947, 1948, 1949, 1950]
-
 function commonYears(arr){
   //first I make a copy of the Arr (so as not to mutate original array) and flatten the array to make it easier to iterate through given values
   let allYears = arr.slice().flat(), list = [], counts={};
@@ -31,10 +30,12 @@ function commonYears(arr){
     console.log(getMax(counts)
       );
 }
-
  let arr1 = [[1910, 1950], [1900, 1951], [1945, 2000]]//return [1945, 1946, 1947, 1948, 1949, 1950]
 commonYears(arr1);
 //test case B
-let arr2 = [[1901,1903],[1902,1904],[1903,1905],[1899,1905]] //return 1903
+let arr2 = [[1901,1903],[1902,1904],[1903,1905],[1899,1905]] //return 1903 test for 4 arrays given 
 commonYears(arr2);
+//test case C
+let arr3 = [[1900,1945],[1910,1934],[1909,1921],[1850,1876]]//return [1910,1921] test for outlier array [1850,1876]
+commonYears(arr3);
 
