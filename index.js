@@ -4,37 +4,32 @@
 
 function commonYears(arr){
   //first I make a copy of the Arr (so as not to mutate original array) and flatten the array to make it easier to iterate through given values
-  let allYears = arr.slice().flat(), list = [], commonVals = [], counts={};
+  let allYears = arr.slice().flat(), list = [], counts={};
   //next, I create a list that contains all the values in the ranges given
   for(let i = 0; i < allYears.length; i++){
+    //this for loop creates ranges from the ranges and should keep time complexity within O(n), because it is only analyzing value at index and it's neighbor n+1
     for(let j = allYears[i]; j <= allYears[i+1]; j++){
       list.push(j);
     }
   }
   //i create a copy of the array of all ranges so as not to mutate the original list
   let rangeList = list.slice();
-  // console.log("list", sortedList);
+  //now we have to get the counts for each year across the ranges given
   for (var k=0;k<rangeList.length;k++) {
     var item = rangeList[k];
     //analyse each item of the rangeList, assign it to a key of the  "counts object" and assign a value that represents it's key.
     counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
-    //i still need to tweak this code to return Only the year(s) that is(are) most common amongst the ranges being analyzed
-    // if(counts[item] >= arr.length) {
-    //   commonVals.push(item);
-    // } 
   }
-    //here we filter the counts object to return the keys representing the years with greatest common occurence between ranges
+    //here we use a helper function "getMax" to filter the counts object and return the keys representing the years with greatest common occurence between ranges
    const getMax = object => {
         return Object.keys(object).filter(x => {
              return object[x] == Math.max.apply(null, 
              Object.values(object));
        })
-}
-    commonVals.concat(
-      getMax(counts)
-      );
+      }
 //return the year(s) most common to all ranges.  
-  console.log(commonVals);
+    console.log(getMax(counts)
+      );
 }
 
  let arr1 = [[1910, 1950], [1900, 1951], [1945, 2000]]//return [1945, 1946, 1947, 1948, 1949, 1950]
