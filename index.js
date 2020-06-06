@@ -10,15 +10,6 @@ function commonYears(arr){
     for(let j = allYears[i]; j <= allYears[i+1]; j++){
       list.push(j);
     }
-  }
-  //i create a copy of the array of all ranges so as not to mutate the original list
-  let rangeList = list.slice();
-  //now we have to get the counts for each year across the ranges given
-  for (var k=0;k<rangeList.length;k++) {
-    var item = rangeList[k];
-    //analyse each item of the rangeList, assign it to a key of the  "counts object" and assign a value that represents it's key.
-    counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
-  }
     //here we use a helper function "getMax" to filter the counts object and return the keys representing the years with greatest common occurence between ranges
    const getMax = object => {
         return Object.keys(object).filter(x => {
@@ -38,3 +29,4 @@ commonYears(arr2);
 //test case C
 let arr3 = [[1900,1945],[1910,1934],[1909,1921],[1850,1876]]//return [1910,1921] test for outlier array [1850,1876]
 commonYears(arr3);
+
