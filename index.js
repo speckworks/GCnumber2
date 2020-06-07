@@ -4,7 +4,8 @@
 
  const commonYears = arr => {
   //first I make a copy of the Arr (so as not to mutate original array) and flatten the array to make it easier to iterate through given values
-  let allYears = arr.slice().flat(), list = [], counts = {};
+  let allYears = [...arr].flat(), list = [], counts = {};
+  console.log(arr);
   //next, I create a list that contains all the values in the ranges given
   for(let i = 0; i < allYears.length; i++){
     //this for loop creates ranges from the ranges and should keep time complexity within O(n), because it is only analyzing value at index and it's neighbor n+1
@@ -13,7 +14,7 @@
     }
   }
   //i create a copy of the array of all ranges so as not to mutate the original list
-  let rangeList = list.slice();
+  let rangeList = [...list];
   //now we have to get the counts for each year across the ranges given
   for (let k = 0; k < rangeList.length; k++) {
     let item = rangeList[k];
@@ -24,7 +25,7 @@
 //here we use a helper function "getMax" to filter the counts object and return the keys representing the years with maximum common occurence between ranges
       const getMax = object => {
         return Object.keys(object).filter(x => {
-              return object[x] == Math.max.apply(null, 
+              return object[x] == Math.max(... 
               Object.values(object));
         })
       }
