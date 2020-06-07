@@ -18,11 +18,11 @@
   //now we have to get the counts for each year across the ranges given
   for (let k = 0; k < rangeList.length; k++) {
     let item = rangeList[k];
-    //analyse each item of the rangeList, assign it to a key of the  "counts object" and assign a value that represents it's key.
+    //analyse each item of the rangeList, assign it to a key of the  "counts object" and assign a value that represents it's key. Ternary operator here keeps the code nice and concise. 
     counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
   }
 ///////////////////////////////////////////////////////////////////////////////////  
-//here we use a helper function "getMax" to filter the counts object and return the keys representing the years with maximum common occurence between ranges
+//Here we use a helper function "getMax" to filter the counts object and return the keys representing the years with maximum common occurence between ranges
       const getMax = object => {
         return Object.keys(object).filter(x => {
               return object[x] == Math.max(... 
